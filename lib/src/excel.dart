@@ -48,6 +48,7 @@ class Excel {
 
   String _stylesTarget = '';
   String _sharedStringsTarget = '';
+
   String get _absSharedStringsTarget {
     if (_sharedStringsTarget.isNotEmpty && _sharedStringsTarget[0] == "/") {
       return _sharedStringsTarget.substring(1);
@@ -79,7 +80,7 @@ class Excel {
   }
 
   factory Excel.decodeBuffer(InputStream input) {
-    return _newExcel(ZipDecoder().decodeBuffer(input));
+    return _newExcel(ZipDecoder().decodeStream(input));
   }
 
   ///
